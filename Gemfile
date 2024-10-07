@@ -1,93 +1,33 @@
-# Ignore bundler config.
-/.bundle
+# frozen_string_literal: true
 
-# Ignore all logfiles and tempfiles.
-/log/*
-!/log/.keep
-/tmp
-!/tmp/.keep
+source 'https://rubygems.org'
 
-# Ignore pidfiles, but keep the directory.
-/tmp/pids
-/tmp/pids/*
-!/tmp/pids/.keep
+ruby '3.2.2'
 
-# Ignore uploaded files in development.
-/storage/*
-  !/storage/.keep
+# The original asset pipeline for Rails
+gem 'sprockets-rails'
 
-/public/system
-/public/uploads
+# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem 'rails', '~> 7.1.4'
 
-# Ignore master key for decrypting credentials and more.
-/config/master.key
+# Ruby static code analyzer (a.k.a. linter) and code formatter
+gem 'rubocop-rails'
 
-# Ignore credentials file
-/config/credentials.yml.enc
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3', '~> 1.4'
 
-# Ignore node_modules
-/node_modules
+# Use the Puma web server [https://github.com/puma/puma]
+gem 'puma', '>= 5.0'
 
-# Ignore yarn lockfile and node_modules
-/yarn-error.log
-/yarn.lock
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: %i[windows jruby]
 
-# Ignore npm lockfile
-/package-lock.json
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', require: false
 
-# Ignore sprockets cache
-/.sass-cache
-/public/assets
-           .byebug_history
-
-# Ignore Sidekiq PIDs and logs
-/sidekiq.log
-/sidekiq.pid
-
-# Ignore spring files.
-/spring/*.pid
-
-# Ignore coverage directory for test coverage tools (e.g., SimpleCov).
-*.gem
-*.rbc
-/.config
-/coverage/
-  /InstalledFiles
-/pkg/
-  /spec/reports/
-  /spec/examples.txt
-/test/tmp/
-  /test/version_tmp/
-  /tmp/
-
-# Used by dotenv library to load environment variables.
-# .env
-
-# Ignore test result logs (Minitest, RSpec).
-/test/tmp
-/spec/reports
-
-# Ignore database configuration files.
-/config/database.yml
-
-# Ignore environment variable files.
-/.env
-.env.*
-
-# Ignore cached RubyGems.
-/vendor/bundle
-/vendor/cache
-
-# Ignore secret files.
-/config/secrets.yml
-
-# Ignore macOS system files
-               .DS_Store
-
-# Ignore temporary files created by editors.
-*.swp
-*.swo
-*~
-.project
-   .idea
-   .secret
+group :development, :test do
+  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'debug', platforms: %i[mri windows]
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+end
